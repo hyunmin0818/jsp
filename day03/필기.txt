@@ -1,0 +1,101 @@
+1. GET/POST 전송 방식
+ 1-1. GET방식
+  - 서블릿에 데이터를 전송할 때 데이터가 url뒤에
+  name=value 형태로 전송
+  - 보안에 취약
+  - 전송 가능 데이터 최대 255자
+  - 기본 전송 방식, 사용이 쉽움
+  - 웹 브라우저에서 직접 입력하여 전송 가능
+  - 여러 개의 데이터를 전송할 때 '&'로 구분해서 전송
+  - doGet() 처리
+
+ 1-2. POST 방식
+  - 서블릿에 데이터를 전송할 때 TCP/IP 프로토콜의 
+ 데이터를 HEAD 영역에 숨겨진 채 전송
+ - 보안에 유리
+ - 전송 데이터 용량 무제한
+ - 전송시 서블릿에서 또 다시 가져오는 작업이 필요하므로
+ get방식보다 처리 속도가 느림
+ - doPost()
+
+2. Servlet Filter
+ - 필터란, 클라이언트로부터의 요청이 백엔드로 가기 전에
+ 가로채서 서버로부터의 응담이 클라이언트로 보내지기 
+ 전에 조작하기 위해서 사용한다. 
+ 
+3. 서버 상태코드
+ - HTTP 상태 코드 목록
+	-> 1XX(정보) : 요청을 받았으며 프로세스를 계속한다.
+	-> 2XX(성공) : 요청을 성공적으로 받았으며 인식했고
+	수용하였다
+	-> 3XX(리다이렉션) : 요청 완료를 위해 추가 작업
+	조치가 필요하다
+ 	-> 4XX(클라이언트 오류) : 요청의 문법이 잘못되었거나
+	요청을 처리할 수 없다.
+	-> 5XX(서버 오류) : 서버가 명백히 유효한 요청에 
+	대해 충족을 실패했다.  
+
+4. 상태유지 
+ - application, session, cookie
+
+ 4-1. application
+ - 웹 어플리케이션의 정보를 담고있는 객체, 하나의 
+ 프로젝트가 하나의 Applicaion 이라고 생각하면 된다.
+ 
+ 4-2. session 
+ - 하나의 웹 브라우저의 정보를 유지하기 위한 세션 정보를
+ 저장
+ - 저장되는 공간은 WAS 메모리
+ - 브라우저 종료 시 종료
+ - 클라이언트의 로그인 정보
+ - 내장객체로써 브라우저마다 한 개씩 존재하고, 고유한
+ sessionID 생성 후 정보를 추출한다. 
+ - 웹에서만 접근할 수 있기 때문에 보안성이 좋고, 
+ 저장 용량의 한계가 없다.
+ 
+ 4-3. session 사용법
+ - session 값 설정
+	-> session.setAttribute("key", value);
+	-> session.setAttribute("user_id", "admin");
+ - session 값 가져오기
+	-> session.getAttribute("key");
+	-> session.getAttribute("user_id");
+ - session 유지 시간
+	// 60분동안 세션 시간 유지
+	-> session.setMaxInactiveInterval(60*60);
+	// 세션시간 무한대
+	-> session.setMaxInactiveInterval(-1);
+	// web.xml 설정 : 30분설정
+	<session-config>
+    		<session-timeout>30</session-timeout>
+	</session-config>
+  - 세션값 삭제
+ 	-> session.removeAttribute("key");
+ 	-> session.removeAttribute("user_id");
+	// 세션 전체 제거,
+	-> session.invalidate();
+
+ 4-4. 쿠키(Cookie)
+ - 웹 브라우저가 보관하고 있는 데이터로, 웹 서버에서 요청을
+ 보낼 때 쿠키를 헤더에 담아서 전송한다. 
+ - 장단점
+	-> 클라이언트의 일정 폴더에 정보를 저장하기 때문에
+	서버의 부하를 줄일 수 있다. 
+	-> 정보가 사용자 컴퓨터에 저장되기 때문에 보안에 
+	위협을 받을 수 있다
+	-> "쿠키차단"기능을 사용자가 사용하면 무용지물
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
