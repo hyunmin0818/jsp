@@ -4,6 +4,10 @@ public class MemberDTO {
 	private String userid;
 	private String userpw;
 	private String username;
+	private String usergender;
+	private String userphone;
+	
+	
 	public String getUserid() {
 		return userid;
 	}
@@ -34,6 +38,4 @@ public class MemberDTO {
 	public void setUserphone(String userphone) {
 		this.userphone = userphone;
 	}
-	private String usergender;
-	private String userphone;
 }
