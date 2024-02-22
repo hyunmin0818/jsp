@@ -7,7 +7,7 @@
 <title>join view</title>
 </head>
 <body>
-	<form action="" method="post" name="joinForm">
+	<form action="join_db.jsp" method="post" name="joinForm">
 		<p id="text">사용할 수 있는 아이디입니다.</p>
 		<p>
 			<label> 아이디 <input type="text" name="userid">
@@ -41,8 +41,9 @@
 		<p>상세주소</p>
 		<p>참고항목</p>
 		<p>
-			<input type="button" value="가입완료" onclick="sendit()">
+			<input type="button" value="회원가입" onclick="sendit()">
 		</p>
 	</form>
 </body>
+<script src="user.js"></script>
 </html>

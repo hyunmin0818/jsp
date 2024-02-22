@@ -6,3 +6,5 @@ String user = "jsp"; // 데이터베이스 사용자 이름
 String pass = "jsp"; // 데이터베이스 암호
 int check = 0;
 Class.forName(driver);
+
+Uncaught TypeError: Cannot read properties of null (reading 'value')
