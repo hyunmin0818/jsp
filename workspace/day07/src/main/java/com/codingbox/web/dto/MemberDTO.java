@@ -2,7 +2,6 @@ package com.codingbox.web.dto;
 
 public class MemberDTO {
 	private String name;
-	private int age;
 	public String getName() {
 		return name;
 	}
@@ -15,5 +14,5 @@ public class MemberDTO {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+	private int age;
 }
