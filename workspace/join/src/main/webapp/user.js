@@ -1,5 +1,5 @@
 /**
- * 폼을 유효성 검사하고 제출하는 함수
+ * 회원가입 validation check
  */
 function sendit() {
 	// 폼 요소 가져오기
@@ -77,4 +77,25 @@ function sendit() {
 
 	// 모든 체크가 통과되면 폼 제출
 	joinForm.submit();
+}
+/*
+	로그인 validation check
+*/
+
+function loginit(){
+	let frm = document.joinForm;
+	let userid = frm.userid;
+	let userpw = frm.userpw;
+	
+	if (userid.value === "") {
+		alert("아이디를 입력하세요!");
+		userid.focus();
+		return false;
+	}
+	
+	if(userpw.value === ""){
+		alert("비밀번호를 입력하세요!");
+		userpw.focus();
+		return false;
+	}
 }
