@@ -13,8 +13,12 @@
 	<%
 	String userid = request.getParameter("userid");
 	String userpw = request.getParameter("userpw");
+	String username = request.getParameter("username");
 	MemberDAO mdao = new MemberDAO();
-	if (mdao.login(userid, userpw)) { // 로그인 성공
+	MemberDTO mdto = mdao.login(userid, userpw);
+	
+	if (mdto != null) { // 로그인 성공
+		session.setAttribute("session_id", mdto);
 	%>
 	<script>
 		location.href = "main_view.jsp";
