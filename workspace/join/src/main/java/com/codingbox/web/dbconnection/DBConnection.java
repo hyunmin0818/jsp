@@ -8,9 +8,10 @@ public class DBConnection {
 	public static Connection getConnection() {
 		Connection conn = null;
 		
+		
 		try {
 			String driver = "oracle.jdbc.driver.OracleDriver";
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url ="jdbc:oracle:thin:@localhost:1521:xe";
 			String user = "jsp";
 			String password = "jsp";
 			Class.forName(driver);
@@ -26,7 +27,14 @@ public class DBConnection {
 			System.out.println("알 수 없는 오류");
 		}
 		
-		
 		return conn;
 	}
+	
+	
 }
+
+
+
+
+
+

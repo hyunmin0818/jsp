@@ -7,7 +7,6 @@ public class MemberDTO {
 	private String usergender;
 	private String userphone;
 	
-	
 	public String getUserid() {
 		return userid;
 	}
