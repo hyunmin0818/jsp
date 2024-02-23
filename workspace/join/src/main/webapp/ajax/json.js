@@ -18,15 +18,26 @@ window.onload = function() {
 		if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
 			let obj = JSON.parse(xhr.responseText);
 			let i = 0;
+			let a = 0;
 
-			setInterval(function() {
+			const interval = setInterval(function() {
 				if (i == obj.search_word.length) {
 					i = 0;
 				}
 				td1.innerHTML = obj.search_word[i].rank;
 				td2.innerHTML = obj.search_word[i].name;
 				i++;
-			}, 2000);
+				a++;
+				
+				if (a > 50) {
+					alert(A);
+					clearInterval(interval);
+				}
+			}, 10);
 		}
 	}
+	setTimeout(function(){
+			// clearInterval(인터벌); : 해당 인터벌을 삭제
+			clearInterval(interval);
+		}, 2000);
 }
