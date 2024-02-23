@@ -1,5 +1,9 @@
 Uncaught TypeError: Cannot read properties of undefined
 KeyPress
+json형식
+get방식
+post방식
+ajax방식
 
 1. Ajax(Asynchronous javascript And XML): 비동기적 통신
 
@@ -18,5 +22,20 @@ KeyPress
    - 다양한 UI(동적 페이지 구현)이 가능하다
 
 4. 단점
+
    - 페이지의 이동이 없기때문에 히스토리 관리가 안된다.
    - 반복적인 데이터 요청이 있으면 느려지거나 작동하지 않게 된다.
+
+5. 서버로 부터 응답
+
+   - readyState 프로퍼티는 XMLHttpRequest 객체의 현재 상태를 나타낸다.
+   - UNSENT: 숫자 0, XMLHttpRequest 객체가 생성
+   - OPENED: 숫자 1, open() 메서드가 성공적으로 실행됨
+   - HEADERS_RECEIVED: 숫자 2, 모든 요청에 대한 응답이 도착
+   - LOADING: 숫자 3, 요청한 데이터를 처리 중
+   - DONE: 숫자 4, 요청한 데이터의 처리가 완료되어 응답할 준비가 완료됨
+
+6. JSON이란
+   - 경량화된 데이터 교환 형식
+   - 서로 다른 언어들 간 데이터를 주고받을 수 있도록 만들어진 텍스트 기반의 형식
+   - 프로그래밍 언어가 아닌 데이터 표기 방법 중 하나이고 기본적으로 name:value 형태의 구조를 가지고 있다.
