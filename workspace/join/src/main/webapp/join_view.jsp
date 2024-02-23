@@ -5,61 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Join View</title>
-<style>
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f4f4f4;
-	margin: 0;
-	padding: 0;
-}
-
-#container {
-	width: 400px;
-	margin: 50px auto;
-	background-color: #fff;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-	text-align: center;
-}
-
-label {
-	display: block;
-	margin-bottom: 10px;
-}
-
-input[type="text"], input[type="password"], input[type="button"], input[type="radio"]
-	{
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	box-sizing: border-box;
-}
-
-input[type="button"] {
-	background-color: #007bff;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-}
-
-input[type="button"]:hover {
-	background-color: #0056b3;
-}
-
-#text {
-	color: green;
-}
-</style>
 </head>
 <body>
 	<div id="container">
-		<h1>Join Form</h1>
 		<form action="join_db.jsp" method="post" name="joinForm">
 			<p id="text" style="visibility: hidden">사용할 수 있는 아이디입니다.</p>
 			<p>
