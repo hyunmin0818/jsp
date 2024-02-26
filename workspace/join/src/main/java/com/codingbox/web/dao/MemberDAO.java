@@ -83,4 +83,57 @@ public class MemberDAO {
 
 		return member;
 	}
+
+//	public boolean searchId(String userid) {
+//		Connection con = null;
+//		PreparedStatement ps = null;
+//		ResultSet rs = null;
+//		boolean flag = false;
+//		try {
+//			String sql = "SELECT * FROM TBL_MEMBER WHERE userid =?";
+//			ps = conn.prepareStatement(sql);
+//			ps.setString(1, userid);
+//			
+//			rs = ps.executeQuery();
+//			
+//			while(rs.next()) {
+//				flag = true;
+//			}
+//		}catch (SQLException e) {
+//			System.out.println("SQL 실행중 오류 발생");
+//		} finally {
+//			try {
+//				if(conn != null)
+//					conn.close();
+//				
+//				if(ps != null)
+//					ps.close();
+//			}catch (Exception e) {
+//				System.out.println("접속종료 실패");
+//			}
+//		}
+//		return flag;
+//		
+//	}
+
+	public boolean checkId(String userid) {
+		boolean result = false;
+		String sql = "SELECT * FROM TBL_MEMBER WHERE userid = ?";
+		try {
+			conn = DBConnection.getConnection();
+			pstm = conn.prepareStatement(sql);
+
+			pstm.setString(1, userid);
+			rs = pstm.executeQuery();
+
+			if (rs.next()) {
+				if (rs.getString(1).equals(userid)) {
+					result = true;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

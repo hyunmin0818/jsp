@@ -33,7 +33,7 @@ window.onload = function() {
 					alert(A);
 					clearInterval(interval);
 				}
-			}, 10);
+			}, 2000);
 		}
 	}
 	setTimeout(function(){
