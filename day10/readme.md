@@ -11,3 +11,24 @@
 - **insert <br> - 성공: 1(여러개인 경우에도 1)<br> - 실패: error**
 - **update <br> - 성공: update된 행의 갯수 반환(없다면 0)<br> - 실패: error**
 - **delete<br> - 성공: delete된 행의 갯수 반환(없다면 0)<br> - 실패: error**
+
+# EL문과 JSTL
+
+- **JSP페이지 내에 자바코드와 HTML 코드가 섞여있으면 가독성이 떨어진다.**
+- **EL문과 JSTL문을 사용하면 HTML과 같은 태그로만 구성된 일관된 소스코드를 볼 수 있다는 장점이 있다.**
+
+## EL
+
+- **Expression Language**
+- **값을 간결하고 간편하게 출력할 수 있도록 해주는 언어**
+- **<%= %>, out.println()과 같은 자바코드를 더 이상 사용하지 않고 좀 더 간편하게 출력을 지원하기 위한 도구**
+- **배열이나 컬렉션에도 사용되고, JavaBean 프로퍼티에서도 사용된다.**
+- **${...}내에 표현한다.**
+- **EL식에서 Attribute의 이름으로 해석이 된다<br> - 값을 찾을때는 Attribute는 작은 Scope에서 큰 Scope으로 찾는다.<br> - page > request > session > application**
+
+## EL연산자
+
+- **산술연산자: +, -, \*, /(div), %(mode)**
+- **논리연산자: &&(and), ||(od), !(not)**
+- **비교연산자: ==(eq), !=(ne), <(lt), >(ge), <=(le), >=(ge)**
+- **empty연산자: 값이 null이거나 공백문자인지를 판단하는 연산자<br> - ${empty ""} -> true<br> - ${empty null} -> true<br> - ${empty data} -> data 값이 없으면 true**

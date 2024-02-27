@@ -14,6 +14,9 @@
 	String userid = request.getParameter("userid");
 	String userpw = request.getParameter("userpw");
 	String username = request.getParameter("username");
+	String zipcode = request.getParameter("zipcode");
+	
+	
 	MemberDAO mdao = new MemberDAO();
 	MemberDTO mdto = mdao.login(userid, userpw);
 	

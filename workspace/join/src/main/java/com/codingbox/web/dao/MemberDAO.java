@@ -39,7 +39,7 @@ public class MemberDAO {
 		HashMap<String, String> datas = new HashMap<String, String>();
 		datas.put("userid", userid);
 		datas.put("userpw", userpw);
-		
+	
 		member = sqlSession.selectOne("Member.login", datas);
 		
 		return member;
