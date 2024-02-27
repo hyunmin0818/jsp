@@ -6,20 +6,22 @@
 <meta charset="UTF-8">
 <title>Join View</title>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
-	#text{
-		color: darkblue;
-		font-seight: bold;
-	}
+#text {
+	color: darkblue;
+	font-seight: bold;
+}
 </style>
 <body>
 	<div id="container">
 		<form action="join_db.jsp" method="post" name="joinForm">
-			<p id="text" hidden"></p>
+			<p id="text"hidden"></p>
 			<p>
 				<label>아이디 <input type="text" name="userid"></label> <input
-					type="button" value="중복확인" onclick="checkId3(joinForm.userid.value);">
+					type="button" value="중복확인"
+					onclick="checkId(joinForm.userid.value);">
 			</p>
 			<p>
 				<label>비밀번호 <input type="password" name="userpw"></label>

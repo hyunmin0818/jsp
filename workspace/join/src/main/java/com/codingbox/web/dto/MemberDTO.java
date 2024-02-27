@@ -37,4 +37,5 @@ public class MemberDTO {
 	public void setUserphone(String userphone) {
 		this.userphone = userphone;
 	}
+	
 }

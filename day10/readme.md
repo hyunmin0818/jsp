@@ -4,3 +4,10 @@
 - **MyBatis는 프로그램에 있는 SQL쿼리들을 한 구성 파일에 구성하여 프로그램 코드와 SQL을 분리할 수 있는 장점을 가지고 있다.**
 - **MYBatis는 기존 JDBC 방식과 달리 SQL문을 XML파일에 작성함으로써 코드가 줄어들고 SQL문만 따로 관리하기 때문에 수정이 편해진다.**
 - <https://blog.mybatis.org/p/products.html>
+
+# MyBatis Query
+
+- **select <br> - 성공: select문에 해당하는 결과를 return <br> - 실패: error**
+- **insert <br> - 성공: 1(여러개인 경우에도 1)<br> - 실패: error**
+- **update <br> - 성공: update된 행의 갯수 반환(없다면 0)<br> - 실패: error**
+- **delete<br> - 성공: delete된 행의 갯수 반환(없다면 0)<br> - 실패: error**

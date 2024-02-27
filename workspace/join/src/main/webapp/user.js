@@ -156,7 +156,7 @@ function checkId2(userid) {
 	}
 }
 
-function checkId3(userid) {
+function checkId(userid) {
 	if (userid == "") {
 		alert("아이디를 입력해주세요");
 		return false;
