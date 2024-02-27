@@ -115,19 +115,68 @@ function checkId(userid) {
 	} else {
 		// ajax
 		let xhr = new XMLHttpRequest();
-		xhr.open("GET", "idcheck.jsp?userid="+userid, true);
-		xhr.send();	
+		xhr.open("GET", "idcheck.jsp?userid=" + userid, true);
+		xhr.send();
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
 				// 회원가입이 가능한 아이디라면 id가 text인 영역에 "사용할 수 있는 아이디입니다"출력
 				// 그렇지 않다면 "중복된 아이디입니다" 출력
 				//alert(xhr.responseText.trim());
-			if(xhr.responseText.trim() == "ok"){
-				document.getElementById("text").innerHTML = "사용할 수 있는 아이디 입니다.";
-			}else {
-				document.getElementById("text").innerHTML = "이미 사용중인 아이디 입니다.";
-			}
+				if (xhr.responseText.trim() == "ok") {
+					document.getElementById("text").innerHTML = "사용할 수 있는 아이디 입니다.";
+				} else {
+					document.getElementById("text").innerHTML = "이미 사용중인 아이디 입니다.";
+				}
 			}
 		}
+	}
+}
+
+function checkId2(userid) {
+	if (userid == "") {
+		alert("아이디를 입력해주세요");
+		return false;
+	} else {
+		// jQuery ajax
+		$.ajax({
+			type	: 'get',	//	타입작성(get, post)
+			url		: 'idcheck.jsp?userid=' + userid,
+			async	: true,	// 비동기화여부(비동기: true)
+			success	: function(result) {		// 성공시 콜백함수
+				if (result.trim() == "ok") {
+					document.getElementById("text").innerHTML = "사용할 수 있는 아이디 입니다.";
+				} else {
+					document.getElementById("text").innerHTML = "이미 사용중인 아이디 입니다.";
+				}
+			},
+			error: function(result, status, error) {	// 실패시 콜백함수
+				console.log(error);
+			}
+		});
+	}
+}
+
+function checkId3(userid) {
+	if (userid == "") {
+		alert("아이디를 입력해주세요");
+		return false;
+	} else {
+		// jQuery ajax
+		$.ajax({
+			type	: 'post',	//	타입작성(get, post)
+			url		: 'idcheck.jsp',
+			data	: {"userid" : userid}, 	
+			async	: true,	// 비동기화여부(비동기: true)
+			success	: function(result) {		// 성공시 콜백함수
+				if (result.trim() == "ok") {
+					document.getElementById("text").innerHTML = "사용할 수 있는 아이디 입니다.";
+				} else {
+					document.getElementById("text").innerHTML = "이미 사용중인 아이디 입니다.";
+				}
+			},
+			error: function(result, status, error) {	// 실패시 콜백함수
+				console.log(error);
+			}
+		});
 	}
 }
