@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -56,12 +57,19 @@ public class MemberDAO {
 		
 		return result;
 	}
+//	
+//	public MemberDTO searchById(String userid) {
+//		MemberDTO mDto = null;
+//		return sqlSession.selectOne("Member.searchById", userid);
+//	}
+	public MemberDTO searchById(String userid) {
+	    // 메서드 구현
+		return sqlSession.selectOne("Member.searchById", userid);
+	}
 	
-	
-	
-	
-	
-
+	public List<MemberDTO> getList() {
+		return sqlSession.selectList("Member.getList");
+	}
 }
 
 
