@@ -8,6 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h2>JSTL TEST</h2>
+	<!-- 
+		변수선언 
+		- scope: 어느 범위까지 사용하는지, page: pageContext
+		- JSTL로 만들어진 값은 setAttribute로 값을 넣기 때문에 el로 값을 가지고 올 수 있다.
+	-->
+	<c:set var="userid" value="apple" scope="page"/>
+	회원아이디: <c:out value="${userid}"/>
+	회원비밀번호: <c:out value="${userpw}"/>
 </body>
 </html>

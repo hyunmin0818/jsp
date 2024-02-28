@@ -17,7 +17,5 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mybatis-3.5.14.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jstl.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
