@@ -8,13 +8,13 @@
   - **목록 검색할때 사용**
   - **검색 결과를 유지한 채로 페이지 이동처리**
 
-**index.jsp -> joinview.jsp
-joinview.jsp
--> UserFronController.java
--> UserJoinAction.java(DTO, Action, ActionForward)
--> UserDAO(MyBatis Connection)
--> user.xml
--> loginview.jsp**
+**index.jsp -> joinview.jsp**
+**joinview.jsp**
+**-> UserFronController.java**
+**-> UserJoinAction.java(DTO, Action, ActionForward, (insert작업))**
+**-> UserDAO(MyBatis Connection)**
+**-> user.xml**
+**-> loginview.jsp**
 
 # 상대경로 절대경로
 
