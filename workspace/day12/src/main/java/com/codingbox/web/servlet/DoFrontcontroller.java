@@ -1,3 +1,8 @@
+/*
+ * DoFrontController 서블릿은 확장자가 ".do"로 끝나는 URL에 대한 요청을 처리합니다.
+ * 각 요청에 따라 적절한 Do1, Do2, Do3 클래스의 execute 메서드를 호출하고,
+ * 그 결과에 따라 적절한 JSP 페이지로 포워딩합니다.
+ */
 package com.codingbox.web.servlet;
 
 import java.io.IOException;
@@ -15,36 +20,27 @@ public class DoFrontcontroller extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
 	}
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
-
 	}
-	protected void doProcess (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("URI: " + req.getRequestURI());
 
 		String responseURI = null;
-		
-		if(req.getRequestURI().equals("/do1.do")) {
-//			req.setAttribute("result", "do1으로 요청 보내기");
-//			req.getRequestDispatcher("do1.jsp").forward(req, resp);
-			
-			responseURI = new Do1().execute(req,resp);
-		
-		}else if(req.getRequestURI().equals("/do2.do")) {
-//			req.setAttribute("result", "do2으로 요청 보내기");
-//			req.getRequestDispatcher("do2.jsp").forward(req, resp);
 
+		// 요청된 URI에 따라 적절한 Do 클래스의 execute 메서드를 호출합니다.
+		if (req.getRequestURI().equals("/do1.do")) {
+			responseURI = new Do1().execute(req, resp);
+		} else if (req.getRequestURI().equals("/do2.do")) {
 			responseURI = new Do2().execute(req, resp);
-			
-		}else if(req.getRequestURI().equals("/do3.do")) {
-//			req.setAttribute("result", "do3으로 요청 보내기");
-//			req.getRequestDispatcher("do3.jsp").forward(req, resp);
-
+		} else if (req.getRequestURI().equals("/do3.do")) {
 			responseURI = new Do3().execute(req, resp);
-			
 		}
-		
+
+		// 적절한 JSP 페이지로 포워딩합니다.
 		req.getRequestDispatcher(responseURI).forward(req, resp);
 	}
 }

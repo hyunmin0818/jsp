@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- config.xml 파일은 MyBatis의 전반적인 설정을 담당합니다. 데이터베이스 연결 및 매퍼 파일의 경로 등을 설정합니다. -->
 <!DOCTYPE configuration
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<!-- 개발 환경 설정 -->
 	<environments default="development">
 		<environment id="development">
+			<!-- JDBC 트랜잭션 관리자 지정 -->
 			<transactionManager type="JDBC" />
+			<!-- POOLED 데이터 소스 설정 -->
 			<dataSource type="POOLED">
-				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<!-- 데이터베이스 드라이버 설정 -->
+				<property name="driver"
+					value="oracle.jdbc.driver.OracleDriver" />
+				<!-- 데이터베이스 접속 URL 설정 -->
+				<property name="url"
+					value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<!-- 데이터베이스 접속 계정 설정 -->
 				<property name="username" value="jsp" />
+				<!-- 데이터베이스 접속 비밀번호 설정 -->
 				<property name="password" value="jsp" />
 			</dataSource>
 		</environment>
 	</environments>
-	
+
+	<!-- 매퍼 파일 경로 설정 -->
 	<mappers>
-		<mapper resource="com/codingbox/web/sql/user.xml"/>
+		<!-- 사용자 정보에 관한 SQL이 정의된 매퍼 파일 지정 -->
+		<mapper resource="com/codingbox/web/sql/user.xml" />
 	</mappers>
 </configuration>
