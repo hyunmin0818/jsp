@@ -34,8 +34,17 @@ public class BoardFrontController extends HttpServlet {
 		case "/board/BoardList.bo":
 			forward = new BoardListAction().execute(req, resp);
 			break;
+		case "/board/BoardWriteOk.bo":
+			forward = new BoardWriteOkAction().execute(req, resp);
+			break;
+		case "/board/BoardView.bo":
+			forward = new BoardViewAction().execute(req, resp);
+			break;
+		case"/board/AddReply.bo":
+			// AddReplyAction()
+			forward = new AddReplyAction().execute(req, resp);
+			break;
 		}
-
 		// 페이지 이동에 대한 일괄처리
 		if (forward != null) {
 			if (forward.isRedirect()) { // Redirect 방식

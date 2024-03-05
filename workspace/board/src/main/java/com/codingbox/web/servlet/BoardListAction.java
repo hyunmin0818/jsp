@@ -36,13 +36,12 @@ public class BoardListAction implements Action {
 		int startPage = (page - 1) / pageSize * pageSize + 1;
 		int endPage = startPage + pageSize - 1;
 		int totalPage = (totalCnt - 1) / pageSize + 1;
-
+		
 		endPage = endPage > totalPage ? totalPage : endPage;
 
 		request.setAttribute("boardList", bdao.getBoardList(startRow, endRow));
 		// 게시판 전체 글의 갯수를 cnt
 		request.setAttribute("totalCnt", totalCnt);
-
 		request.setAttribute("totalPage", totalPage);	
 		request.setAttribute("nowPage", page);	
 		request.setAttribute("startPage", startPage);	
@@ -50,13 +49,8 @@ public class BoardListAction implements Action {
 		
 		forward.setRedirect(false);
 		forward.setPath(request.getContextPath() + "/board/boardlist.jsp");
-			
+		
 		return forward;
-	}
-
-	private Object totalCnt() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

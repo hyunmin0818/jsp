@@ -15,4 +15,16 @@
 		SELECT COUNT(*) FROM
 		tbl_board
 	</select>
+	
+	<insert id="InsertBoard" parameterType="boarddto">
+		INSERT INTO tbl_board VALUES (board_seq.nextval, #{boardtitle}, #{boardcontents}, #{username}, sysdate, 0)
+	</insert>
+	
+	<select id="getDetail" parameterType="_int" resultType="boarddto">
+		SELECT * FROM tbl_board WHERE boardnum = #{boardnum}
+	</select>
+	
+	<update id="updateReadCount" parameterType="_int">
+		UPDATE tbl_board SET boardreadcount = boardreadcount + 1 WHERE boardnum = #{boardreadcount}
+	</update>
 </mapper>

@@ -52,9 +52,15 @@ table {
 			<c:choose>
 				<c:when test="${boardList != null and fn:length(boardList) > 0 }">
 					<c:forEach var="board" items="${boardList}">
-						<tr align="center" valign="middle">
+						<tr align="center" valign="middle"
+	   					onmouseover="this.style.background='#bbdefb'"
+	                    onmouseout="this.style.background=''" height="23px"
+						>
 							<td height="23px">${board.boardnum}</td>
-							<td height="23px">${board.boardtitle}</td>
+							<td height="23px">
+							<a href="${pageContext.request.contextPath }/board/BoardView.bo?boardnum=${board.boardnum}">${board.boardtitle}</a>
+							
+							</td>
 							<td height="23px">${board.username}</td>
 							<td height="23px">${board.boarddate}</td>
 							<td height="23px">${board.boardreadcount}</td>
@@ -72,10 +78,23 @@ table {
 		<br>
 		<!-- 페이징 처리 -->
 		<table style="border: 0px; width: 900px;">
-			<tr align="right" valign="middle">
-				<td><c:forEach var="i" begin="${startPage }" end="${endPage }">
-						[${i}]
-					</c:forEach></td>
+			<tr align="center" valign="middle">
+				<td>
+					<c:if test="${nowPage > 1 }">
+						<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${nowPage - 1}">[&lt;]</a>
+					</c:if> 
+					<c:forEach var="i" begin="${startPage }" end="${endPage }">
+						<c:choose>
+							<c:when test="${i == nowPage }">[${i }]</c:when>
+								<c:otherwise>
+									<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${i}">[${i}]</a>
+								</c:otherwise>
+						</c:choose>
+					</c:forEach> 
+					<c:if test="${nowPage < totalPage }">
+						<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${totalPage + 1}">[&gt;]</a>
+					</c:if>
+				</td>
 			</tr>
 		</table>
 		<table style="border: 0px; width: 900px;">

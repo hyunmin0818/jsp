@@ -31,4 +31,24 @@ public class BoardDAO {
 		int boardCnt = sqlSession.selectOne("Board.getBoardCnt");
 		return boardCnt;
 	}
+	
+	public boolean InsertBoard(BoardDTO bdto) {
+		boolean result = false;
+		
+		if(sqlSession.insert("Board.InsertBoard", bdto) == 1) {
+			result = true;
+		}
+		
+		return result;
+	}
+
+	public Object getDetail(int boardnum) {
+		return sqlSession.selectOne("Board.getDetail", boardnum);
+		
+	}
+
+	public Object updateReadCount(int boardnum) {
+		return sqlSession.selectOne("Board.updateReadCount", boardnum);
+	}
+
 }
