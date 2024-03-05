@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +36,7 @@ table {
 				<td><h3>MVC 게시판</h3></td>
 			</tr>
 			<tr align="right" valign="middle">
-				<td>글 개수 : ${totalCnt} 개</td>
+				<td>글 개수 : ${totalCnt } 개</td>
 			</tr>
 		</table>
 		<table border="1"
@@ -48,61 +48,76 @@ table {
 				<th width="17%">날짜</th>
 				<th width="10%">조회수</th>
 			</tr>
-			<!-- 게시글 작성 -->
+			<!-- 게시글 작성 : 게시글이 있는경우 -->
 			<c:choose>
 				<c:when test="${boardList != null and fn:length(boardList) > 0 }">
-					<c:forEach var="board" items="${boardList}">
+					<c:forEach var="board" items="${boardList }">
 						<tr align="center" valign="middle"
-	   					onmouseover="this.style.background='#bbdefb'"
-	                    onmouseout="this.style.background=''" height="23px"
-						>
-							<td height="23px">${board.boardnum}</td>
-							<td height="23px">
-							<a href="${pageContext.request.contextPath }/board/BoardView.bo?boardnum=${board.boardnum}">${board.boardtitle}</a>
-							
+							onmouseover="this.style.background='#bbdefb'"
+							onmouseout="this.style.background=''" height="23px">
+							<td height="23px;">${board.boardnum }</td>
+							<td height="23px;">
+								<a href="${pageContext.request.contextPath }/board/BoardView.bo?boardnum=${board.boardnum}">
+									${board.boardtitle }
+								</a>
 							</td>
-							<td height="23px">${board.username}</td>
-							<td height="23px">${board.boarddate}</td>
-							<td height="23px">${board.boardreadcount}</td>
+							<td height="23px;">${board.username }</td>
+							<td height="23px;">${board.boarddate }</td>
+							<td height="23px;">${board.boardreadcount }</td>
 						</tr>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
-					<!-- 게시글이 없는 경우 -->
 					<tr style="height: 50px;">
-						<td colspan="5" style="text-align: center">등록된 게시물이 없습니다.</td>
-					</tr>
+		               <td colspan="5" style="text-align: center">
+		                  등록된 게시물이 없습니다.
+		               </td>
+		            </tr>
 				</c:otherwise>
 			</c:choose>
 		</table>
 		<br>
 		<!-- 페이징 처리 -->
 		<table style="border: 0px; width: 900px;">
-			<tr align="center" valign="middle">
+			<tr align="center" valign="middle" >
 				<td>
 					<c:if test="${nowPage > 1 }">
-						<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${nowPage - 1}">[&lt;]</a>
-					</c:if> 
-					<c:forEach var="i" begin="${startPage }" end="${endPage }">
+						<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${nowPage -1}">[&lt;]</a>
+					</c:if>
+					<c:forEach var="i" begin="${startPage}" end="${endPage}">
 						<c:choose>
 							<c:when test="${i == nowPage }">[${i }]</c:when>
-								<c:otherwise>
-									<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${i}">[${i}]</a>
-								</c:otherwise>
+							<c:otherwise>
+								<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${i}">[${i}]</a>
+							</c:otherwise>
 						</c:choose>
-					</c:forEach> 
+					</c:forEach>
 					<c:if test="${nowPage < totalPage }">
-						<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${totalPage + 1}">[&gt;]</a>
+						<a href="${pageContext.request.contextPath }/board/BoardList.bo?page=${nowPage + 1}">[&gt;]</a>
 					</c:if>
 				</td>
 			</tr>
 		</table>
+		
 		<table style="border: 0px; width: 900px;">
 			<tr align="right" valign="middle">
-				<td><a
-					href="${pageContext.request.contextPath }/board/BoardWrite.bo">[글쓰기]</a></td>
+				<td>
+					<a href="${pageContext.request.contextPath }/board/BoardWrite.bo">
+						[글쓰기]
+					</a>
+				</td>
 			</tr>
 		</table>
 	</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

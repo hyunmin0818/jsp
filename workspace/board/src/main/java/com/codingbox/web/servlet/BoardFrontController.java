@@ -11,22 +11,24 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("*.bo")
-public class BoardFrontController extends HttpServlet {
+public class BoardFrontController  extends HttpServlet{
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, 
+			HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
 	}
-
+	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, 
+			HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
 	}
-
-	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	protected void doProcess(HttpServletRequest req, 
+			HttpServletResponse resp) throws ServletException, IOException {
 		String requestRUI = req.getRequestURI();
 		ActionForward forward = null;
 
-		// 여기에 작성
 		switch (requestRUI) {
 		case "/board/BoardWrite.bo":
 			forward = new ActionForward(true, "/board/boardwrite.jsp");
@@ -34,25 +36,38 @@ public class BoardFrontController extends HttpServlet {
 		case "/board/BoardList.bo":
 			forward = new BoardListAction().execute(req, resp);
 			break;
-		case "/board/BoardWriteOk.bo":
+		case "/board/BoardWriteOK.bo":
 			forward = new BoardWriteOkAction().execute(req, resp);
 			break;
 		case "/board/BoardView.bo":
 			forward = new BoardViewAction().execute(req, resp);
 			break;
-		case"/board/AddReply.bo":
-			// AddReplyAction()
+		case "/board/AddReply.bo":
 			forward = new AddReplyAction().execute(req, resp);
 			break;
 		}
+		
+		
 		// 페이지 이동에 대한 일괄처리
-		if (forward != null) {
-			if (forward.isRedirect()) { // Redirect 방식
+		if( forward != null ) {
+			if( forward.isRedirect() ) {	// Redirect 방식
 				resp.sendRedirect(forward.getPath());
-			} else { // forward 방식
-				req.getRequestDispatcher(forward.getPath()).forward(req, resp);
+			} else {						// forward 방식
+				req.getRequestDispatcher(forward.getPath())
+					.forward(req, resp);
 			}
 		}
-
+		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+

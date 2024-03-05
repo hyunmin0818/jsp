@@ -45,5 +45,4 @@ public class BoardDTO {
 		this.boardreadcount = boardreadcount;
 	}
 	
-	
 }

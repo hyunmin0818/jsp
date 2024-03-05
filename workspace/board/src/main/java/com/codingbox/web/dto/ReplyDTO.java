@@ -34,7 +34,9 @@ public class ReplyDTO {
 	public int getBoardnum() {
 		return boardnum;
 	}
-	public void setBoardnum(int string) {
-		this.boardnum = string;
+	public void setBoardnum(int boardnum) {
+		this.boardnum = boardnum;
 	}
+	
+	
 }

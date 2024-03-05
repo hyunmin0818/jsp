@@ -24,9 +24,9 @@
 			<tr>
 				<th align="center" width="150px;">제목</th>
 				<td>
-					${board.boardtitle}
+					${board.boardtitle }
 					<span style="font-weight: bold;color: #6a1b9a;float: right;">
-						조회수 : ${board.boardreadcount} 
+						조회수 :  ${board.boardreadcount }
 					</span>
 				</td>
 			</tr>
@@ -54,27 +54,48 @@
 		</table>
 		
 		<%-- 댓글 리스트 --%>
-	<hr/>
-      <form name="replyForm" method="post"
-         action="${pageContext.request.contextPath }/board/AddReply.bo">
-         <input type="hidden" name="boardnum" vlaue="${board.boardnum }">
-         <table border="1">
-            <tr>
-               <td align="center" width="200px">
-                  댓글<br><hr>
-                  이름 &nbsp;&nbsp;&nbsp;&nbsp;
-                  <input type="text" name="username" maxlength="10"/><br/>
-                  비밀번호
-                  <input type="password" name="password" />
-               </td>
-               <td style="padding-left: 10px;">
-                  <textarea name="replycontent"
-                  style="width: 680px;height: 85px;resize: none;"></textarea><br/>
-                  <a href="javascript:document.replyForm.submit()">[등록]</a>
-               </td>
-            </tr>
-         </table>
-      </form>
+		<hr/>
+		<form name="replyForm" method="post"
+			action="${pageContext.request.contextPath }/board/AddReply.bo">
+			<input type="hidden" name="boardnum" value="${board.boardnum }">
+			<table border="1">
+				<tr>
+					<td align="center" width="200px">
+						댓글<br><hr>
+						이름 &nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="text" name="username" maxlength="10"/><br/>
+						비밀번호
+						<input type="password" name="password" />
+					</td>
+					<td style="padding-left: 10px;">
+						<textarea name="replycontent"
+						style="width: 680px;height: 85px;resize: none;"></textarea><br/>
+						<a href="javascript:document.replyForm.submit()">[등록]</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+		
 	</div>
 </body>
+
+
+
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,28 +3,47 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Board">
-	<select id="getBoardList" parameterType="hashmap"
-		resultType="boarddto">
-		SELECT b.* FROM
-		(SELECT rownum rn, a.* FROM
-		(SELECT * FROM TBL_BOARD ORDER BY BOARDNUM desc) a) b
-		WHERE b.rn BETWEEN ${startRow} AND ${endRow}
-	</select>
-
-	<select id="getBoardCnt" resultType="int">
-		SELECT COUNT(*) FROM
-		tbl_board
+	<select id="getBoardList" resultType="boarddto" parameterType="hashmap">
+		SELECT * FROM (
+			SELECT rownum r , a.* FROM 
+			(SELECT * FROM TBL_BOARD ORDER BY BOARDNUM DESC) a) b
+		WHERE b.r BETWEEN #{startRow} AND #{endRow}
 	</select>
 	
-	<insert id="InsertBoard" parameterType="boarddto">
-		INSERT INTO tbl_board VALUES (board_seq.nextval, #{boardtitle}, #{boardcontents}, #{username}, sysdate, 0)
+	<select id="getBoardCnt" resultType="_int">
+		SELECT COUNT(*) FROM TBL_BOARD
+	</select>
+	
+	<insert id="insertBoard" parameterType="boarddto">
+		INSERT INTO TBL_BOARD VALUES
+		(board_seq.nextval, #{boardtitle},#{boardcontents}
+			,#{username},sysdate,0 )
 	</insert>
 	
 	<select id="getDetail" parameterType="_int" resultType="boarddto">
-		SELECT * FROM tbl_board WHERE boardnum = #{boardnum}
+		SELECT * FROM TBL_BOARD WHERE BOARDNUM = #{boardnum}
 	</select>
 	
 	<update id="updateReadCount" parameterType="_int">
-		UPDATE tbl_board SET boardreadcount = boardreadcount + 1 WHERE boardnum = #{boardreadcount}
+		UPDATE TBL_BOARD SET BOARDREADCOUNT = BOARDREADCOUNT + 1
+		WHERE BOARDNUM = #{boardnum}
 	</update>
+	
+	<insert id="addReply" parameterType="replydto">
+		INSERT INTO TBL_REPLY VALUES
+		(reply_seq.nextval, #{replycontents}, 
+					#{username},#{password},#{boardnum})
+	</insert>
 </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
